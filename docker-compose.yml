@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  mysqldt:
+    container_name: mysqldt
+    image: mysql:8.0.17
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: 32
+      # MYSQL_USER:   
+      MYSQL_DATABASE: tests_spring
+    ports:
+      - "3306:3306"
+    restart: always
+  
+  web_spring:    
+    build: .
+    volumes:
+    - .:/app
+    - ~/.m2:/root/.m2
+    working_dir: /app
+    ports:
+    - 4000:4000
+    command: mvn clean spring-boot:run
+    depends_on:
+    - mysqldt
