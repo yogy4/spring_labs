@@ -12,6 +12,7 @@ public class User {
     private Long id;
     private String username;
     private String password;
+    private String token;
     
     @Transient
     private String passwordConfirm;
@@ -66,6 +67,14 @@ public class User {
         this.roles = roles;
     }
 
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
 
 }

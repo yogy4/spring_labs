@@ -8,7 +8,8 @@ services:
     environment:
       MYSQL_ROOT_HOST: '%'
       MYSQL_ROOT_PASSWORD: 32
-      # MYSQL_USER:   
+      MYSQL_USER: java
+      MYSQL_PASSWORD: pp 
       MYSQL_DATABASE: tests_spring
     ports:
       - "3306:3306"
